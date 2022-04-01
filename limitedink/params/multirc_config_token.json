@@ -1,0 +1,35 @@
+{
+    "data_params": {
+        "task": "multirc",
+        "model": "distilbert",
+        "batch_size": 3,
+        "max_seq_length": 512,
+        "max_query_length": 32,
+        "max_num_sentences": 15,
+        "classes": [ "True", "False" ],
+        "labels_ids": {"True": 0, "False": 1},
+        "truncate": false,
+        "partial_train": 1.0,
+        "rationale_level": "token",
+        "overwrite_cache": false,
+        "cached_features_file": "token_cached_features_file.pt",
+        "remove_query_input": false
+    },
+    "model_params": {
+        "tau": 0.1,
+        "num_labels": 2,
+        "model_type": "distilbert-base-uncased",
+        "dropout": 0.5,
+        "loss_function": "limitedink"
+    },
+    "train_params": {
+        "epochs": 6,
+        "lr": 2e-5
+    },
+    "model_kwargs": {
+        "continuity_lambda": 3, 
+        "sparsity_lambda": 0.3,
+        "comprehensive_lambda": 0.0001
+    }
+}
+

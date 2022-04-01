@@ -1,0 +1,990 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+    <head>
+
+    <title>Human Annotation for Different Moview Review Levels</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">        
+    <script type="text/javascript" src="https://s3.amazonaws.com/mturk-public/externalHIT_v1.js"></script>
+
+    <script type="text/javascript" src="https://mturk-host.herokuapp.com/jquery-3.6.0.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+
+    <body>
+
+        <form name="mturk_form" method="post" id="mturk_form" action="https://www.mturk.com/mturk/externalSubmit">
+            <input type="hidden" id="assignmentId" name="assignmentId">
+            <input type="hidden" name="StartTime" id="StartTime" value="" />
+            <input type="hidden" name="S1Time" id="S1Time" value="" />
+            <input type="hidden" name="S1Collapse" id="S1Collapse" value="" />
+            <input type="hidden" name="S2Time" id="S2Time" value="" />
+            <input type="hidden" name="S2Collapse" id="S2Collapse" value="" />
+            <input type="hidden" name="S3Time" id="S3Time" value="" />
+            <input type="hidden" name="S3Collapse" id="S3Collapse" value="" />
+            <input type="hidden" name="S4Time" id="S4Time" value="" />
+            <input type="hidden" name="S4Collapse" id="S4Collapse" value="" />
+            <input type="hidden" name="S5Time" id="S5Time" value="" />
+            <input type="hidden" name="S5Collapse" id="S5Collapse" value="" />                        
+    
+
+    
+        <section class="container">
+            <div id="main-container">
+    
+            <div class="card ">
+    
+                <div class="card-header text-white bg-primary"><strong>Instructions</strong></div>
+                
+                    <div class="card-body">
+                        In this HIT, you will see <b class="text-danger">parts of a movie review</b>. Read it carefully, and:
+                        <br>
+                        <br>
+                        (1)  Based on the partial content you see, try your best to <b class="text-danger">guess the original movie review is Positive</b> or <b class="text-danger">Negative</b> toward the movie (i.e., the Sentiment of the review), and
+                        <br>
+                        <br>
+                        (2) Tell us how <b class="text-danger">confident</b> you are about the guess.
+                        <br>
+                        <br>
+                        In this HIT, you will label <b class="text-danger">five</b> movie reviews &#128522; .
+
+
+                        <div class="card" id="introduction">
+
+                            <div class="card-header" id="introduction">
+    
+                                <a class="panel-heading" href="javascript:void(0);" id="collapseTrigger">
+                                    <span class="text-primary"><strong>Examples</strong> 
+                                        <span class="collapse-text">(Click to Hide Examples)</span> 
+                                    </span>
+                                </a>
+    
+                            </div>
+    
+                            <div class="panel-body" id="instructionBody">
+    
+                                <div class="card-body">
+                                    <p class="card-text" id="s1_text">
+                                        <p>Here is a movie review example, with a <b>Positive</b> sentiment label as ground truth: </p>
+                                        
+                                        <p class="p-3 mb-2 bg-light text-dark" >
+                                        '' trees lounge is the directoral debut from one of my favorite actors , steve busce . he gave memorable performence in in the soup , fargo , and reservoir dogs . now he tries his hand at writing , directing and acting all in the same flick . the movie starts out awfully slow with tommy ( busce ) hanging around a local bar the " trees lounge " and him pestering his brother . it ' s obvious he a loser . but as he says " it ' s better i ' m a loser and know i am , then being a loser and not thinking i am . " well put . the story starts to take off when his uncle dies , and tommy , not having a job , decides to drive an ice cream truck . well , the movie starts to pick up with him finding a love interest in a 17 year old girl named debbie ( chloe sevi ) and . . . i liked this movie alot even though it did not reach my expectation . after you ' ve seen him in fargo and reservoir dogs , you know he is capable of a better performence . i think his brother , michael , did an excellent job for his debut performence . mr . busce is off to a good career as a director ! ''
+                                        </p>
+    
+    
+                                        <p>In the HIT, we will <b >hide the sentiment label</b> and <b >highlight part of texts </b> in this movie review. Then you'll be asked to:</p> 
+                                        <p><em>(1) <b >guess the review's sentiment label</b> given only highlighted content you see;</em></p> 
+                                        <p><em>(2) tell us <b >your confidence</b> on the selection.</em></p> Here we provide examples explaining <b >several different confidence levels</b> for your reference. </p>
+    
+    
+                                        <li class="list-group-item">
+                                            <b class="text-primary" >Example-1:</b> 
+                                            <p class="p-3 mb-2 bg-light text-dark border border-info" >
+                                                '' ········ <span class="hi-ra">i liked this movie alot even though it did not reach my expectation .</span> ······ <span class="hi-ra">i think his brother , michael , did an excellent job for his debut performence . mr . busce is off to a good career as a director !</span>''
+                                            </p>
+    
+                                            <p><b>You Selected Label:</b> 
+    
+                                            <label class="btn btn-outline-danger" style="margin-right:50px">
+                                                <input hidden name="S1Q1inlineButtonOptions" id="S1Q1inlineButtonOptions-Positive" required="" type="radio" value="Positive" />
+                                                Positive
+                                            </label> 
+    
+                                            <p><b>Confidence:</b>
+    
+                                            <label class="btn btn-outline-info" style="margin-bottom:10px">
+                                                <input hidden  name="S1Q2inlineButtonOptions" id="S1Q2inlineButtonOptions-5" required="" type="radio" value="5 - Very Confident " />
+                                                5 - Very Confident 
+                                            </label> 
+                                            <span class="text-secondary"> - The displayed texts show clear attitude, and reflects the core sentiment (like/dislike) of the full review.</span>
+    
+    
+                                            <p><b>Explanation:</b> The displayed texts <b>clearly show the writer's sentimental opinion</b> on the movie, such as "i liked this movie alot". You could be <b class="text-info">Very Confident</b> to select your sentiment label in this example.</p>
+                                        
+                                        </li>
+    
+    
+                                        <li class="list-group-item">
+                                            <b class="text-primary">Example-2:</b> 
+                                            <p class="p-3 mb-2 bg-light text-dark border border-info" >
+                                                ''  <span class="hi-ra"> it ' s obvious he a loser . but as he says " it ' s better i ' m a loser and know i am , then being a loser and not thinking i am .</span>················· <span class="hi-ra"> well , the movie starts to pick up with him finding a love interest in a 17 year old girl named debbie ( chloe sevi ) and .</span> ·········''
+                                            </p>
+                                            
+    
+                                            <p><b>You Selected Label:</b> 
+                                            <label class="btn btn-outline-danger" style="margin-right:50px">
+                                                <input hidden name="S1Q1inlineButtonOptions" id="S1Q1inlineButtonOptions-Positive" required="" type="radio" value="Positive" />
+                                                Positive
+                                            </label> 
+    
+                                            <p><b>Confidence:</b>
+                                            <button covid-focus="background" type="button" class="btn btn-outline-info covid-focus-btn unselected-focus" style="margin-bottom:10px">3 - Hesitating</button>
+                                            <span class="text-secondary"> - The displayed texts seem positive/negative, but I cannot guess if it’s representative of the full review.</span>
+    
+                                            <p><b>Explanation:</b> The displayed texts seem positive / negative, such as "finding a love interest in", "it ' s obvious he a loser ". <b>BUT they are describing movie plot but not direct evidence on showing writer's sentimental opinions</b> on this movie. 
+                                                You might be <b class="text-info">Hesitating</b> to select your sentiment label in this example.</p>
+                                        </li>
+    
+    
+                                        
+                                        <li class="list-group-item">
+                                            <b class="text-primary">Example-3:</b>
+                                            <p class="p-3 mb-2 bg-light text-dark border border-info" >
+                                                '' .......<span class="hi-ra">now he tries his hand at writing .</span> ....... <span class="hi-ra">after you ' ve seen him in fargo and reservoir dogs ,</span>..... ''
+                                            </p>
+    
+                                            <p><b>You Selected Label:</b> 
+                                                <label class="btn btn-outline-primary" style="margin-right:50px">
+                                                    <input hidden name="S1Q1inlineButtonOptions" id="S1Q1inlineButtonOptions-Negative" required="" type="radio" value="Negative" />
+                                                    Negative
+                                                </label> 
+    
+                                            <p><b>Confidence:</b>
+                                                <label class="btn btn-outline-info" style="margin-bottom:10px">
+                                                    <input hidden  name="S1Q2inlineButtonOptions" id="S1Q2inlineButtonOptions-1" required="" type="radio" value="1 - I don't know " />
+                                                    1 - I Guess Randomly
+                                                </label> 
+                                                <span class="text-secondary"> - The displayed texts are too trivial and does not reflect on the larger themes.</span>
+    
+    
+                                                <p><b>Explanation:</b> The displayed texts <b>don't show clear sentimental information</b> on this movie. You might randomly guess one label and choose <b class="text-info">I Guess Randomly</b> as your confidenct.</p>
+    
+                                        </li>
+                                    </p>
+                                </div>
+                            </div>
+    
+                        </div>
+    
+                    <p class="card-text" style="margin:10px"><i>We are the <a href="https://crowd.ist.psu.edu/crowd-ai-lab.html" target="_blank">Crowd-AI Lab at Penn State University</a>. Please contact Hua Shen (huashen218@psu.edu) for any questions. 
+				
+                    </div>
+                </div>
+                
+        
+        <br>
+
+        <div class="card">
+            <div class="card-header text-white bg-info"><strong>Select Sentiment and Confidence of the Displayed Parts of Moview Review</strong></div>
+                        
+                <div class="card-body">
+                    Please select the <b>sentiment label of the displayed parts of the movie review</b> and provide your <b>confidence on the selection</b>.
+                    <br>
+                    <br>
+
+                    <div class="card" id="s1-card"> 
+
+                        <div class="card-header">Parts of the Movie Review 1</div>
+
+                        <div class="card-body">
+
+                            <div class="p-3 mb-2 bg-light text-dark border border-info" >
+                                <p ><div>········ <span class=hi-ra>conspiracy in the vatican riding on the result of the visit , though that result seems small compared to the end of the world . - big yucks </span> ········ <span class=hi-ra>pope ' s aid praying to a mendes goat . - in large part a satire of life in newfoundland taking licks at things like the </span> ·················· <span class=hi-ra><PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> </span> ·················· <span class=hi-ra><PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> </span></div></p>
+                            </div>
+
+                            <div class="card-body">
+
+                                    <li class="list-group-item">
+                                        <div class="card-body">
+                                        <div class="form-group">
+
+                                            <p><span><strong>Question1</strong></span>: Is the movie review <b>Positive</b> or <b>Negative</b>? Please guess based on the parts of texts you see.</p>
+
+                                            <div class="btn-group-horizontal text-center" data-toggle="buttons" id="S1Q1">
+                                                <label class="btn btn-outline-danger" style="margin-right:50px">
+                                                    <input hidden name="S1Q1inlineButtonOptions" id="S1Q1inlineButtonOptions-Positive" required="" type="radio" value="Positive" />
+                                                    Positive
+                                                </label> 
+                                                <label class="btn btn-outline-primary" style="margin-left:50px;margin-right:50px">
+                                                    <input hidden name="S1Q1inlineButtonOptions" id="S1Q1inlineButtonOptions-Negative" required="" type="radio" value="Negative" />
+                                                    Negative
+                                                </label> 
+                                                <br>
+                                                <label class="btn btn-outline-secondary" style="margin-left:50px">
+                                                    <input hidden  name="S1Q1inlineButtonOptions" id="S1Q1inlineButtonOptions-Empty" required="" type="radio" value="Can't Tell" />
+                                                    It's an Empty Input
+                                                </label> 
+                                                <span  class="text-secondary"> (Empty reviews are usually caused by data processing errors)  </span>
+                                            </div>
+                                            
+                                        </div>
+                                    </li>
+
+
+
+                                    <li class="list-group-item">
+                                        <div class="card-body">
+
+                                            <div class="form-group">
+
+                                                <p><span><strong>Question2</strong></span>: How <strong>Confident</strong> are you in your above selection?</p>
+    
+                                                <div class="btn-group-horizontal text-left" data-toggle="buttons" id="S1Q2">
+                                                    
+
+                                                    <label class="btn btn-outline-info" style="margin-bottom:10px">
+                                                        <input hidden  name="S1Q2inlineButtonOptions" id="S1Q2inlineButtonOptions-5" required="" type="radio" value="5 - Very Confident " />
+                                                        5 - Very Confident 
+                                                    </label> 
+                                                    <span class="text-secondary"> - The displayed texts show clear attitude, and reflects the core sentiment (like/dislike) of the full review.</span>
+                                                    <br>
+
+                                                    <label class="btn btn-outline-info" style="margin-bottom:10px">
+                                                        <input hidden  name="S1Q2inlineButtonOptions" id="S1Q2inlineButtonOptions-4" required="" type="radio" value="4 - Pretty Confident " />
+                                                        4 - Pretty Confident 
+                                                    </label> 
+                                                    <span class="text-secondary"> - The displayed texts show attitude towards the movie, but not very clear to reflect the core sentiment.</span>
+                                                    <br>
+
+                                                    <label class="btn btn-outline-info" style="margin-bottom:10px">
+                                                        <input hidden name="S1Q2inlineButtonOptions" id="S1Q2inlineButtonOptions-3" required="" type="radio" value="3 - Hesitating " />
+                                                        3 - Hesitating 
+                                                    </label> 
+                                                    <span class="text-secondary"> - The displayed texts seem positive/negative, but I cannot guess if it’s representative of the full review.</span>
+                                                    <br>
+
+                                                    <label class="btn btn-outline-info" style="margin-bottom:10px">
+                                                        <input hidden name="S1Q2inlineButtonOptions" id="S1Q2inlineButtonOptions-2" required="" type="radio" value="2 - Not Confident " />
+                                                        2 - Not Confident 
+                                                    </label> 
+                                                    <span class="text-secondary"> - The displayed texts are ambiguous. I am not confident on the attitude towrards the movie.</span>
+                                                    <br>
+
+                                                    <label class="btn btn-outline-info" style="margin-bottom:10px">
+                                                        <input hidden  name="S1Q2inlineButtonOptions" id="S1Q2inlineButtonOptions-1" required="" type="radio" value="1 - I Guess Randomly" />
+                                                        1 - I Guess Randomly
+                                                    </label> 
+                                                    <span class="text-secondary"> - The displayed texts are too trivial and does not reflect on the larger themes.</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+
+
+
+                                    <p class="text-center">
+                                        <input type="submit" id="S1Submit" class="btn btn-primary btn-block sub" value="Submit"/>
+                                    </p>
+
+
+                                        <div class="card-body">
+                                            <div class="form-group">
+                                                <input type="hidden" name="S1DataIndex" id="S1DataIndex" value=69 />
+                                                <input type="hidden" name="S1Length" id="S1Length" value=30% />         
+                                                <input type="hidden" name="S1TrueLabel" id="S1TrueLabel" value=Negative />       
+                                                <input type="hidden" name="S1PredLabel" id="S1PredLabel" value=Negative />    
+                                                <input type="hidden" name="WorkerGroup" id="WorkerGroup" value=5 />  
+                                                <input type="hidden" name="Batch" id="Batch" value=0 />  
+                                                <input type="hidden" name="Model" id="Model" value=R />        
+                                            </div>
+                                        </div>
+
+                                </div>
+
+
+                            </div>
+                    </div>
+
+
+                    
+                    <div class="card" id="s2-card" style="display:none"> 
+                        <div class="card-header">Parts of the Movie Review 2</div>
+                        <div class="card-body">
+
+                            <div class="p-3 mb-2 bg-light text-dark border border-info" >
+                                <p ><div>··················· <span class=hi-ra>the acting is n ' t too bad at all . . . . . considering what the actors had to work with anyway , as there is no complex or interesting dialogue to speak of . there was some very nice </span> ········ <span class=hi-ra>when the hull near the bridge of the event horizon is breached and the camera pans back to follow specific objects as they bounce across the deck and are sucked out into space . this movie could have been </span> ·············· <span class=hi-ra>. it had a good experienced cast who deserved more to work with . there was just nothing new here that any of us have n ' t seen before in aliens or hellrai . [SEP] <PAD> <PAD> <PAD> <PAD> <PAD> </span> ············· <span class=hi-ra><PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> </span> ····· <span class=hi-ra><PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> </span> ············· <span class=hi-ra><PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> </span></div></p>
+                            </div>
+
+                            <div class="card-body">
+
+                                    <li class="list-group-item">
+                                        <div class="card-body">
+                                        <div class="form-group">
+
+                                            <p><span><strong>Question1</strong></span>: Is the original movie review <b>Positive</b> or <b>Negative</b>? Please guess based on the parts of texts you see.</p>
+
+                                            <div class="btn-group-horizontal text-center" data-toggle="buttons" id="S2Q1">
+                                                <label class="btn btn-outline-danger" style="margin-right:50px">
+                                                    <input hidden name="S2Q1inlineButtonOptions" id="S2Q1inlineButtonOptions-Positive" required="" type="radio" value="Positive" />
+                                                    Positive
+                                                </label> 
+                                                <label class="btn btn-outline-primary" style="margin-left:50px;margin-right:50px">
+                                                    <input hidden name="S2Q1inlineButtonOptions" id="S2Q1inlineButtonOptions-Negative" required="" type="radio" value="Negative" />
+                                                    Negative
+                                                </label> 
+                                                <br>
+                                                <label class="btn btn-outline-secondary" style="margin-left:50px">
+                                                    <input hidden  name="S2Q1inlineButtonOptions" id="S2Q1inlineButtonOptions-Empty" required="" type="radio" value="Can't Tell" />
+                                                    It's an Empty Input
+                                                </label> 
+                                                <span  class="text-secondary"> (Empty reviews are usually caused by data processing errors)  </span>
+                                            </div>
+                                            
+                                        </div>
+                                    </li>
+
+
+                                    <li class="list-group-item">
+                                        <div class="card-body">
+                                            <div class="form-group">
+                                                <p><span><strong>Question2</strong></span>: How <strong>Confident</strong> are you in your above selection?</p>
+    
+                                                <div class="btn-group-horizontal text-left" data-toggle="buttons" id="S2Q2">
+                                                    
+
+                                                    <label class="btn btn-outline-info" style="margin-bottom:10px">
+                                                        <input hidden  name="S2Q2inlineButtonOptions" id="S2Q2inlineButtonOptions-5" required="" type="radio" value="5 - Very Confident " />
+                                                        5 - Very Confident 
+                                                    </label> 
+                                                    <span class="text-secondary"> - The displayed texts show clear attitude, and reflects the core sentiment (like/dislike) of the full review.</span>
+                                                    <br>
+
+                                                    <label class="btn btn-outline-info" style="margin-bottom:10px">
+                                                        <input hidden  name="S2Q2inlineButtonOptions" id="S2Q2inlineButtonOptions-4" required="" type="radio" value="4 - Pretty Confident " />
+                                                        4 - Pretty Confident 
+                                                    </label> 
+                                                    <span class="text-secondary"> - The displayed texts show attitude towards the movie, but not very clear to reflect the core sentiment.</span>
+                                                    <br>
+
+                                                    <label class="btn btn-outline-info" style="margin-bottom:10px">
+                                                        <input hidden name="S2Q2inlineButtonOptions" id="S2Q2inlineButtonOptions-3" required="" type="radio" value="3 - Hesitating " />
+                                                        3 - Hesitating 
+                                                    </label> 
+                                                    <span class="text-secondary"> - The displayed texts seem positive/negative, but I cannot guess if it’s representative of the full review.</span>
+                                                    <br>
+
+                                                    <label class="btn btn-outline-info" style="margin-bottom:10px">
+                                                        <input hidden name="S2Q2inlineButtonOptions" id="S2Q2inlineButtonOptions-2" required="" type="radio" value="2 - Not Confident " />
+                                                        2 - Not Confident 
+                                                    </label> 
+                                                    <span class="text-secondary"> - The displayed texts are ambiguous. I am not confident on the attitude towrards the movie.</span>
+                                                    <br>
+
+                                                    <label class="btn btn-outline-info" style="margin-bottom:10px">
+                                                        <input hidden  name="S2Q2inlineButtonOptions" id="S2Q2inlineButtonOptions-1" required="" type="radio" value="1 - I Guess Randomly" />
+                                                        1 - I Guess Randomly
+                                                    </label> 
+                                                    <span class="text-secondary"> - The displayed texts are too trivial and does not reflect on the larger themes.</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+
+
+                                    <p class="text-center">
+                                        <input type="submit" id="S2Submit" class="btn btn-primary btn-block sub" value="Submit"/>
+                                    </p>
+
+                                        <div class="card-body">
+                                            <div class="form-group">
+                                                <input type="hidden" name="S2DataIndex" id="S2DataIndex" value=90 />
+                                                <input type="hidden" name="S2Length" id="S2Length" value=50% />         
+                                                <input type="hidden" name="S2TrueLabel" id="S2TrueLabel" value=Negative />       
+                                                <input type="hidden" name="S2PredLabel" id="S2PredLabel" value=Negative />    
+                                            </div>
+                                        </div>
+
+
+                                </div>
+
+
+
+                            </div>
+                    </div>
+
+
+
+                    <div class="card" id="s3-card" style="display:none"> 
+
+                        <div class="card-header">Parts of the Movie Review 3</div>
+
+                        <div class="card-body">
+
+                            <div class="p-3 mb-2 bg-light text-dark border border-info" >
+                                <p ><div>············· <span class=hi-ra>a proud 40 , 000 year heritage behind them . naturally , this includes their own system of justice ; key to which is " payback " . an eye for an eye . revenge . usually extracted by the spearing through of the recipient ' s thigh . brown </span> ····· <span class=hi-ra>near the start , is not for the sque ) . the local priest - an aboriginal , but in the " white fellas " church - has a foot on either side of the line . he is , figuratively and literally , in both camps . ernie dingo brings a great deal of understanding to this role as the man in the middle . he is part churchman and part politician . however the tension , like the heat , flies and dust , is always there . whilst </span> ·········· <span class=hi-ra>her aborg friend tony , ( pedersen ) have gone off into the hills . he takes her to a sacred site , even today strictly men - only . she appears to not know this . tony tells her that this is a special place , an initiation place . he </span></div></p>
+                            </div>
+
+
+                            <div class="card-body">
+
+                                    <li class="list-group-item">
+                                        <div class="card-body">
+                                        <div class="form-group">
+
+                                            <p><span><strong>Question1</strong></span>: Is the original movie review <b>Positive</b> or <b>Negative</b>? Please guess based on the parts of texts you see.</p>
+
+                                            <div class="btn-group-horizontal text-center" data-toggle="buttons" id="S3Q1">
+                                                <label class="btn btn-outline-danger" style="margin-right:50px">
+                                                    <input hidden name="S3Q1inlineButtonOptions" id="S3Q1inlineButtonOptions-Positive" required="" type="radio" value="Positive" />
+                                                    Positive
+                                                </label> 
+                                                <label class="btn btn-outline-primary" style="margin-left:50px;margin-right:50px">
+                                                    <input hidden name="S3Q1inlineButtonOptions" id="S3Q1inlineButtonOptions-Negative" required="" type="radio" value="Negative" />
+                                                    Negative
+                                                </label> 
+                                                <br>
+                                                <label class="btn btn-outline-secondary" style="margin-left:50px">
+                                                    <input hidden  name="S3Q1inlineButtonOptions" id="S3Q1inlineButtonOptions-Empty" required="" type="radio" value="Can't Tell" />
+                                                    It's an Empty Input
+                                                </label> 
+                                                <span  class="text-secondary"> (Empty reviews are usually caused by data processing errors)  </span>
+                                            </div>
+                                        </div>
+                                    </li>
+
+
+                                    <li class="list-group-item">
+                                        <div class="card-body">
+
+                                            <div class="form-group">
+
+                                                <p><span><strong>Question2</strong></span>: How <strong>Confident</strong> are you in your above selection?</p>
+    
+                                                <div class="btn-group-horizontal text-left" data-toggle="buttons" id="S3Q2">
+                                                    
+
+                                                    <label class="btn btn-outline-info" style="margin-bottom:10px">
+                                                        <input hidden  name="S3Q2inlineButtonOptions" id="S3Q2inlineButtonOptions-5" required="" type="radio" value="5 - Very Confident " />
+                                                        5 - Very Confident 
+                                                    </label> 
+                                                    <span class="text-secondary"> - The displayed texts show clear attitude, and reflects the core sentiment (like/dislike) of the full review.</span>
+                                                    <br>
+
+                                                    <label class="btn btn-outline-info" style="margin-bottom:10px">
+                                                        <input hidden  name="S3Q2inlineButtonOptions" id="S3Q2inlineButtonOptions-4" required="" type="radio" value="4 - Pretty Confident " />
+                                                        4 - Pretty Confident 
+                                                    </label> 
+                                                    <span class="text-secondary"> - The displayed texts show attitude towards the movie, but not very clear to reflect the core sentiment.</span>
+                                                    <br>
+
+                                                    <label class="btn btn-outline-info" style="margin-bottom:10px">
+                                                        <input hidden name="S3Q2inlineButtonOptions" id="S3Q2inlineButtonOptions-3" required="" type="radio" value="3 - Hesitating " />
+                                                        3 - Hesitating 
+                                                    </label> 
+                                                    <span class="text-secondary"> - The displayed texts seem positive/negative, but I cannot guess if it’s representative of the full review.</span>
+                                                    <br>
+
+                                                    <label class="btn btn-outline-info" style="margin-bottom:10px">
+                                                        <input hidden name="S3Q2inlineButtonOptions" id="S3Q2inlineButtonOptions-2" required="" type="radio" value="2 - Not Confident " />
+                                                        2 - Not Confident 
+                                                    </label> 
+                                                    <span class="text-secondary"> - The displayed texts are ambiguous. I am not confident on the attitude towrards the movie.</span>
+                                                    <br>
+
+                                                    <label class="btn btn-outline-info" style="margin-bottom:10px">
+                                                        <input hidden  name="S3Q2inlineButtonOptions" id="S3Q2inlineButtonOptions-1" required="" type="radio" value="1 - I Guess Randomly" />
+                                                        1 - I Guess Randomly
+                                                    </label> 
+                                                    <span class="text-secondary"> - The displayed texts are too trivial and does not reflect on the larger themes.</span>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                    <p class="text-center">
+                                        <input type="submit" id="S3Submit" class="btn btn-primary btn-block sub" value="Submit"/>
+                                    </p>
+
+
+                                        <div class="card-body">
+                                            <div class="form-group">
+                                                <input type="hidden" name="S3DataIndex" id="S3DataIndex" value=184 />  
+                                                <input type="hidden" name="S3Length" id="S3Length" value=40% />         
+                                                <input type="hidden" name="S3TrueLabel" id="S3TrueLabel" value=Positive />       
+                                                <input type="hidden" name="S3PredLabel" id="S3PredLabel" value=Positive />    
+                                            </div>
+                                        </div>
+
+
+
+
+                                </div>
+
+
+
+                            </div>
+                    </div>
+
+
+
+
+                    <div class="card" id="s4-card" style="display:none"> 
+
+                        <div class="card-header">Parts of the Movie Review 4</div>
+
+                        <div class="card-body">
+
+                            <div class="p-3 mb-2 bg-light text-dark border border-info" >
+                                <p ><div>··················· <span class=hi-ra><PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> </span> ······· <span class=hi-ra><PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> <PAD> </span></div></p>
+                            </div>
+
+                            <div class="card-body">
+
+                                    <li class="list-group-item">
+                                        <div class="card-body">
+                                        <div class="form-group">
+
+                                            <p><span><strong>Question1</strong></span>: Is the original movie review <b>Positive</b> or <b>Negative</b>? Please guess based on the parts of texts you see.</p>
+
+                                            <div class="btn-group-horizontal text-center" data-toggle="buttons" id="S4Q1">
+                                                <label class="btn btn-outline-danger" style="margin-right:50px">
+                                                    <input hidden name="S4Q1inlineButtonOptions" id="S4Q1inlineButtonOptions-Positive" required="" type="radio" value="Positive" />
+                                                    Positive
+                                                </label> 
+                                                <label class="btn btn-outline-primary" style="margin-left:50px;margin-right:50px">
+                                                    <input hidden name="S4Q1inlineButtonOptions" id="S4Q1inlineButtonOptions-Negative" required="" type="radio" value="Negative" />
+                                                    Negative
+                                                </label> 
+                                                <br>
+                                                <label class="btn btn-outline-secondary" style="margin-left:50px">
+                                                    <input hidden  name="S4Q1inlineButtonOptions" id="S4Q1inlineButtonOptions-Empty" required="" type="radio" value="Can't Tell" />
+                                                    It's an Empty Input
+                                                </label> 
+                                                <span  class="text-secondary"> (Empty reviews are usually caused by data processing errors)  </span>
+                                            </div>
+                                        </div>
+                                    </li>
+
+
+                                    <li class="list-group-item">
+                                        <div class="card-body">
+                                            <div class="form-group">
+                                                <p><span><strong>Question2</strong></span>: How <strong>Confident</strong> are you in your above selection?</p>
+                                                <div class="btn-group-horizontal text-left" data-toggle="buttons" id="S4Q2">
+                                                    
+
+                                                    <label class="btn btn-outline-info" style="margin-bottom:10px">
+                                                        <input hidden  name="S4Q2inlineButtonOptions" id="S4Q2inlineButtonOptions-5" required="" type="radio" value="5 - Very Confident " />
+                                                        5 - Very Confident 
+                                                    </label> 
+                                                    <span class="text-secondary"> - The displayed texts show clear attitude, and reflects the core sentiment (like/dislike) of the full review.</span>
+                                                    <br>
+
+                                                    <label class="btn btn-outline-info" style="margin-bottom:10px">
+                                                        <input hidden  name="S4Q2inlineButtonOptions" id="S4Q2inlineButtonOptions-4" required="" type="radio" value="4 - Pretty Confident " />
+                                                        4 - Pretty Confident 
+                                                    </label> 
+                                                    <span class="text-secondary"> - The displayed texts show attitude towards the movie, but not very clear to reflect the core sentiment.</span>
+                                                    <br>
+
+                                                    <label class="btn btn-outline-info" style="margin-bottom:10px">
+                                                        <input hidden name="S4Q2inlineButtonOptions" id="S4Q2inlineButtonOptions-3" required="" type="radio" value="3 - Hesitating " />
+                                                        3 - Hesitating 
+                                                    </label> 
+                                                    <span class="text-secondary"> - The displayed texts seem positive/negative, but I cannot guess if it’s representative of the full review.</span>
+                                                    <br>
+
+                                                    <label class="btn btn-outline-info" style="margin-bottom:10px">
+                                                        <input hidden name="S4Q2inlineButtonOptions" id="S4Q2inlineButtonOptions-2" required="" type="radio" value="2 - Not Confident " />
+                                                        2 - Not Confident 
+                                                    </label> 
+                                                    <span class="text-secondary"> - The displayed texts are ambiguous. I am not confident on the attitude towrards the movie.</span>
+                                                    <br>
+
+                                                    <label class="btn btn-outline-info" style="margin-bottom:10px">
+                                                        <input hidden  name="S4Q2inlineButtonOptions" id="S4Q2inlineButtonOptions-1" required="" type="radio" value="1 - I Guess Randomly" />
+                                                        1 - I Guess Randomly
+                                                    </label> 
+                                                    <span class="text-secondary"> - The displayed texts are too trivial and does not reflect on the larger themes.</span>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+
+
+                                    <p class="text-center">
+                                        <input type="submit" id="S4Submit" class="btn btn-primary btn-block sub" value="Submit"/>
+                                    </p>
+
+                                        <div class="card-body">
+                                            <div class="form-group">
+                                                <input type="hidden" name="S4DataIndex" id="S4DataIndex" value=101 />
+                                                <input type="hidden" name="S4Length" id="S4Length" value=10% />         
+                                                <input type="hidden" name="S4TrueLabel" id="S4TrueLabel" value=Positive />       
+                                                <input type="hidden" name="S4PredLabel" id="S4PredLabel" value=Positive />   
+                                            </div>
+                                        </div>
+
+
+
+                                </div>
+                            </div>
+
+                    </div>
+
+
+
+
+                    <div class="card" id="s5-card" style="display:none"> 
+                        <div class="card-header">Parts of the Movie Review 5</div>
+
+                        <div class="card-body">
+
+                            <div class="p-3 mb-2 bg-light text-dark border border-info" >
+                                <p ><div>·················· <span class=hi-ra>in turmoil thanks to the vote - pander of mayor phleg ( voice of william shatner ) , so </span> ··················· <span class=hi-ra>interesting ( thra looks like an animated " predator " ) , although hyde pierce is a delightful sidekick . adults can desperately keep their eyes peeled </span> ················ <span class=hi-ra>animators dot along the landscape . meanwhile , back in live action land , bill murray is reduced to nothing </span> ············· <span class=hi-ra>molly shannon ( she plays shane ' s teacher , mrs . boyd ) or hoist his ingrow toenail onto a restaurant table . </span></div></p>
+                            </div>
+
+                            <div class="card-body">
+
+
+                                    <li class="list-group-item">
+                                        <div class="card-body">
+                                        <div class="form-group">
+
+                                            <p><span><strong>Question1</strong></span>: Is the original movie review <b>Positive</b> or <b>Negative</b>? Please guess based on the parts of texts you see.</p>
+
+                                            <div class="btn-group-horizontal text-center" data-toggle="buttons" id="S5Q1">
+                                                <label class="btn btn-outline-danger" style="margin-right:50px">
+                                                    <input hidden name="S5Q1inlineButtonOptions" id="S5Q1inlineButtonOptions-Positive" required="" type="radio" value="Positive" />
+                                                    Positive
+                                                </label> 
+                                                <label class="btn btn-outline-primary" style="margin-left:50px;margin-right:50px">
+                                                    <input hidden name="S5Q1inlineButtonOptions" id="S5Q1inlineButtonOptions-Negative" required="" type="radio" value="Negative" />
+                                                    Negative
+                                                </label> 
+                                                <br>
+                                                <label class="btn btn-outline-secondary" style="margin-left:50px">
+                                                    <input hidden  name="S5Q1inlineButtonOptions" id="S5Q1inlineButtonOptions-Empty" required="" type="radio" value="Can't Tell" />
+                                                    It's an Empty Input
+                                                </label> 
+                                                <span  class="text-secondary"> (Empty reviews are usually caused by data processing errors)  </span>
+                                            </div>
+                                        </div>
+                                    </li>
+
+
+
+                                    <li class="list-group-item">
+                                        <div class="card-body">
+                                            <div class="form-group">
+                                                <p><span><strong>Question2</strong></span>: How <strong>Confident</strong> are you in your above selection?</p>
+                                                <div class="btn-group-horizontal text-left" data-toggle="buttons" id="S5Q2">
+                                                    
+                                                    <label class="btn btn-outline-info" style="margin-bottom:10px">
+                                                        <input hidden  name="S5Q2inlineButtonOptions" id="S5Q2inlineButtonOptions-5" required="" type="radio" value="5 - Very Confident " />
+                                                        5 - Very Confident 
+                                                    </label> 
+                                                    <span class="text-secondary"> - The displayed texts show clear attitude, and reflects the core sentiment (like/dislike) of the full review.</span>
+                                                    <br>
+
+                                                    <label class="btn btn-outline-info" style="margin-bottom:10px">
+                                                        <input hidden  name="S5Q2inlineButtonOptions" id="S5Q2inlineButtonOptions-4" required="" type="radio" value="4 - Pretty Confident " />
+                                                        4 - Pretty Confident 
+                                                    </label> 
+                                                    <span class="text-secondary"> - The displayed texts show attitude towards the movie, but not very clear to reflect the core sentiment.</span>
+                                                    <br>
+
+                                                    <label class="btn btn-outline-info" style="margin-bottom:10px">
+                                                        <input hidden name="S5Q2inlineButtonOptions" id="S5Q2inlineButtonOptions-3" required="" type="radio" value="3 - Hesitating " />
+                                                        3 - Hesitating 
+                                                    </label> 
+                                                    <span class="text-secondary"> - The displayed texts seem positive/negative, but I cannot guess if it’s representative of the full review.</span>
+                                                    <br>
+
+                                                    <label class="btn btn-outline-info" style="margin-bottom:10px">
+                                                        <input hidden name="S5Q2inlineButtonOptions" id="S5Q2inlineButtonOptions-2" required="" type="radio" value="2 - Not Confident " />
+                                                        2 - Not Confident 
+                                                    </label> 
+                                                    <span class="text-secondary"> - The displayed texts are ambiguous. I am not confident on the attitude towrards the movie.</span>
+                                                    <br>
+
+                                                    <label class="btn btn-outline-info" style="margin-bottom:10px">
+                                                        <input hidden  name="S5Q2inlineButtonOptions" id="S5Q2inlineButtonOptions-1" required="" type="radio" value="1 - I Guess Randomly" />
+                                                        1 - I Guess Randomly
+                                                    </label> 
+                                                    <span class="text-secondary"> - The displayed texts are too trivial and does not reflect on the larger themes.</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+
+
+                                    <p class="text-center">
+                                        <input type="submit" id="S5Submit" class="btn btn-primary btn-block sub" value="Submit HIT"/>
+                                    </p>
+
+
+                                        <div class="card-body">
+                                            <div class="form-group">
+                                                <input type="hidden" name="S5DataIndex" id="S5DataIndex" value=13 />
+                                                <input type="hidden" name="S5Length" id="S5Length" value=20% />         
+                                                <input type="hidden" name="S5TrueLabel" id="S5TrueLabel" value=Negative />       
+                                                <input type="hidden" name="S5PredLabel" id="S5PredLabel" value=Negative />   
+                                            </div>
+                                        </div>
+
+
+
+                                </div>
+
+
+
+                                
+
+                        </div>
+                    </div>
+
+                </div>
+        </div>
+
+    </section>
+
+
+    <style type="text/css">
+
+
+        .hi-ra{
+            background-color:#FBDFC2;
+            color:#BE0004
+        }
+        .de-ra{
+            background-color:#E2E8E8;
+            color:#DAE1E7
+        }
+        .btn-highlight{
+            outline-style: solid;
+            outline-color: coral;
+        }
+        .btn-dehighlight{
+            outline-style: none;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+
+    </style>
+
+
+    <script>
+
+        $(document).ready(function() {
+
+            var start_time_string = $.now()
+            $("#StartTime").val(Date($.now()));
+            var s1_time_string = "";
+            var s2_time_string = "";
+            var s3_time_string = "";
+            var s4_time_string = "";
+            var s5_time_string = "";
+
+
+
+            // Instructions SHOW as Default
+            var content = $('#instructionBody');
+            var trigger = $('#collapseTrigger');
+            // content.hide();
+            $('.collapse-text').text('(Click to Hide Examples)');
+            trigger.click(function(){
+                content.toggle();
+                var isVisible = content.is(':visible');
+                if(isVisible){
+                    $('.collapse-text').text('(Click to Hide Examples)');
+                }else{
+                    $('.collapse-text').text('(Click to Show Examples)');
+                }
+            });
+
+
+            selection_tracker = {}
+
+            // === S1 Functions ===
+            var inputs = $("#S1Q1 input:radio");
+            inputs.change(function(){
+                if($(this).is(":checked")){
+                    var newItem = $(this).val();
+                    console.log("S1Q1:", newItem);
+                    selection_tracker['S1Q1'] = newItem
+                }
+            });
+            var inputs = $("#S1Q2 input:radio");
+            inputs.change(function(){
+                if($(this).is(":checked")){
+                    var newItem = $(this).val();
+                    console.log("S1Q2:", newItem);
+                    selection_tracker['S1Q2'] = newItem
+                }
+            });  
+
+            $("#S1Submit").click(function(){
+                console.log(selection_tracker['S1Q1']);
+                if( !selection_tracker['S1Q1'] || !selection_tracker['S1Q2'] ){
+                    alert('Please Finish Your Questions :)!');
+                }else{
+                    $("#s2-card").css({'display': "inline"})
+                    $("#s1-card").css({'display': "none"});
+                    $("#s2-card")[0].scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+                    s1_time_string = $.now()
+                    $("#S1Time").val(Date($.now()))
+                    var s1_collapse = s1_time_string - start_time_string;
+                    $("#S1Collapse").val(Math.floor(s1_collapse / 1000));
+                    console.log("S1Time", $("#S1Time").val())
+                    console.log("StartTime", $("#StartTime").val())
+                    console.log("S1Collapse", $("#S1Collapse").val())
+            }
+            });
+
+
+
+            // === S2 Functions ===
+            var inputs = $("#S2Q1 input:radio");
+            inputs.change(function(){
+                if($(this).is(":checked")){
+                    var newItem = $(this).val();
+                    console.log("S2Q1:", newItem);
+                    selection_tracker['S2Q1'] = newItem
+                }
+            });
+            var inputs = $("#S2Q2 input:radio");
+            inputs.change(function(){
+                if($(this).is(":checked")){
+                    var newItem = $(this).val();
+                    console.log("S2Q2:", newItem);
+                    selection_tracker['S2Q2'] = newItem
+                }
+            });  
+            $("#S2Submit").click(function(){
+                if( !selection_tracker['S2Q1'] || !selection_tracker['S2Q2'] ){
+                    alert('Please Finish Your Questions :)!');
+                }else{
+                    $("#s3-card").css({'display': "inline"})
+                    $("#s2-card").css({'display': "none"})
+                    $("#s3-card")[0].scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+                    s2_time_string = $.now()
+                    $("#S2Time").val(Date($.now()))
+                    var s2_collapse = s2_time_string - s1_time_string;
+                    $("#S2Collapse").val(Math.floor(s2_collapse / 1000));
+                    console.log("S2Time", $("#S2Time").val())
+                    console.log("S2Collapse", $("#S2Collapse").val())
+            }
+            });
+
+
+
+            // === S3 Functions ===
+            var inputs = $("#S3Q1 input:radio");
+            inputs.change(function(){
+                if($(this).is(":checked")){
+                    var newItem = $(this).val();
+                    console.log("S3Q1:", newItem);
+                    selection_tracker['S3Q1'] = newItem
+                }
+            });
+            var inputs = $("#S3Q2 input:radio");
+            inputs.change(function(){
+                if($(this).is(":checked")){
+                    var newItem = $(this).val();
+                    console.log("S3Q2:", newItem);
+                    selection_tracker['S3Q2'] = newItem
+                }
+            });  
+            $("#S3Submit").click(function(){
+                if( !selection_tracker['S3Q1'] || !selection_tracker['S3Q2'] ){
+                    alert('Please Finish Your Questions :)!');
+                }else{
+                    $("#s4-card").css({'display': "inline"})
+                    $("#s3-card").css({'display': "none"})
+                    $("#s4-card")[0].scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+                    s3_time_string = $.now()
+                    $("#S3Time").val(Date($.now()))
+                    var s3_collapse = s3_time_string - s2_time_string;
+                    $("#S3Collapse").val(Math.floor(s3_collapse / 1000));
+                    console.log("S3Time", $("#S3Time").val())
+                    console.log("S3Collapse", $("#S3Collapse").val())
+            }
+            });
+
+
+
+            // === S4 Functions ===
+            var inputs = $("#S4Q1 input:radio");
+            inputs.change(function(){
+                if($(this).is(":checked")){
+                    var newItem = $(this).val();
+                    console.log("S4Q1:", newItem);
+                    selection_tracker['S4Q1'] = newItem
+                }
+            });
+            var inputs = $("#S4Q2 input:radio");
+            inputs.change(function(){
+                if($(this).is(":checked")){
+                    var newItem = $(this).val();
+                    console.log("S4Q2:", newItem);
+                    selection_tracker['S4Q2'] = newItem
+                }
+            });  
+
+
+            $("#S4Submit").click(function(){
+                if( !selection_tracker['S4Q1'] || !selection_tracker['S4Q2'] ){
+                    alert('Please Finish Your Questions :)!');
+                }else{
+                    $("#s5-card").css({'display': "inline"})
+                    $("#s4-card").css({'display': "none"})
+                    $("#rationale-select").css({'display': "inline"})
+                    $("#s5-card")[0].scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+                    s4_time_string = $.now()
+                    $("#S4Time").val(Date($.now()))
+                    var s4_collapse = s4_time_string - s3_time_string;
+                    $("#S4Collapse").val(Math.floor(s4_collapse / 1000));
+                    console.log("S4Time", $("#S4Time").val())
+                    console.log("S4Collapse", $("#S4Collapse").val())
+            }
+            });
+            
+
+            // === S5 Functions ===
+            var inputs = $("#S5Q1 input:radio");
+            inputs.change(function(){
+                if($(this).is(":checked")){
+                    var newItem = $(this).val();
+                    console.log("S5Q1:", newItem);
+                    selection_tracker['S5Q1'] = newItem
+                }
+            });
+            var inputs = $("#S5Q2 input:radio");
+            inputs.change(function(){
+                if($(this).is(":checked")){
+                    var newItem = $(this).val();
+                    console.log("S5Q2:", newItem);
+                    selection_tracker['S5Q2'] = newItem
+                }
+            });  
+            $("#S5Submit").click(function(){
+                if( !selection_tracker['S5Q1'] || !selection_tracker['S5Q2'] ){
+                    alert('Please Finish Your Questions :)!');
+                }else{
+                $("#S5Submit").attr({type: "submit"});
+                $('#mturk_form').submit()
+
+                s5_time_string = $.now()
+                $("#S5Time").val(Date($.now()))
+                var s5_collapse = s5_time_string - s4_time_string;
+                $("#S5Collapse").val(Math.floor(s5_collapse / 1000));
+                console.log("S5Time", $("#S5Time").val())
+                console.log("S5Collapse", $("#S5Collapse").val())
+            }
+            });
+        });
+
+    </script>
+
+
+    </form>
+    <script language="Javascript">turkSetAssignmentID();</script>
+
+    </body>
+</html>
+

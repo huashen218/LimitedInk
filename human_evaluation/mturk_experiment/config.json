@@ -1,0 +1,47 @@
+{
+    "mturk_env_config": {
+        "reward": "0.2",
+        "sandbox_env": false,
+        "aws_access_key_id": "YOUR_ID",                             
+        "aws_secret_access_key": "YOUR_KEY"     
+    },
+    "hit_config": {
+        "MaxAssignments": 7,
+        "LifetimeInSeconds": 86400,
+        "AssignmentDurationInSeconds": 1800,
+        "Title": "Label the Sentiment of Movie Reviews",
+        "Keywords": "Sentiment, Moview Review.",
+        "Description": "In this HIT, you will guess the correct sentiment (positive/negative) of a movie review based on parts of the review."
+    },
+    "worker_config": {
+        "worker_requirements": [{
+            "QualificationTypeId": "000000000000000000L0",
+            "Comparator": "GreaterThanOrEqualTo",
+            "IntegerValues": [98],
+            "RequiredToPreview": true
+        },{
+            "QualificationTypeId":"00000000000000000071",
+            "Comparator": "EqualTo",
+            "LocaleValues":[{
+            "Country":"US"
+            }]
+        },
+        {
+            "QualificationTypeId": "00000000000000000040",
+            "Comparator": "GreaterThanOrEqualTo",
+            "IntegerValues": [3000],
+            "RequiredToPreview": true 
+        },
+        {
+            "QualificationTypeId": "00000000000000000060",
+            "Comparator": "EqualTo",
+            "IntegerValues": [1]
+        }
+    ]
+    },
+    "save_files": {
+        "save_type": "json",
+        "save_dir": "./results/"
+    }
+}
+
