@@ -1,7 +1,7 @@
 # Are Shortest Rationales the Best Explanations for Human Understanding?
 
 
-This repository aims to investigate <em>if the shortest rationales are best understandable for humans</em>, which includes the codes of:
+This repository aims to investigate <em><strong>if the shortest rationales are best understandable for humans</em></strong>, which includes the codes of:
 
 1. <strong>LimitedInk Model</strong>: A self-explaining model that can control rationale length.
 2. <strong>Human Study</strong>: the user interfaces to implement MTurk experiments.
