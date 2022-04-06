@@ -6,10 +6,6 @@ echo Downloading MultiRC
 wget -P data/ http://www.eraserbenchmark.com/zipped/multirc.tar.gz
 tar xvzf data/multirc.tar.gz -C data/
 rm data/multirc.tar.gz
-echo Downloading E-SNLI
-wget -P data/ http://www.eraserbenchmark.com/zipped/esnli.tar.gz
-tar xvzf data/esnli.tar.gz -C data/
-rm data/esnli.tar.gz
 echo Downloading Fever
 wget -P data/ http://www.eraserbenchmark.com/zipped/fever.tar.gz
 tar xvzf data/fever.tar.gz -C data/
